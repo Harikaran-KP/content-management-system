@@ -15,6 +15,9 @@ const Sidebar = ({ onSelect, onClose }) => {
         <li onClick={() => { onSelect('drafts'); onClose(); }}>
           <i className="icon icon-drafts"></i> Drafts
         </li>
+        <li onClick={() => { onSelect('edit'); onClose(); }}>
+          <i className="icon icon-drafts"></i> Edit Content
+        </li>
       </ul>
     </div>
   );
