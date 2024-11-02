@@ -1,0 +1,34 @@
+/* Top Navbar styling for mobile */
+.top-navbar {
+    display: none;
+    width: 100vw;
+    background-color: #1A1D5C;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hamburger-icon {
+    height: 8px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .app-title {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  /* Show navbar only on small screens */
+  @media (max-width: 768px) {
+    .top-navbar {
+      display: flex;
+      width: 100vw;
+    }
+  }
+  

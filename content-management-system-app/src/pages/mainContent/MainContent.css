@@ -1,0 +1,21 @@
+/* Main content page styling */
+.main-content-page {
+    /* position: fixed; */
+    padding: 20px;
+    overflow-y: auto;
+    transition: ease;
+  }
+  
+  .main-content-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .content-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  

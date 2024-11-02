@@ -1,0 +1,18 @@
+/* Styling for the Drafts page */
+.drafts-page {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.drafts-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.drafts-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-around;
+}
