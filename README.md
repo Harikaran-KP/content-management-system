@@ -17,6 +17,8 @@ A media content management dashboard application for administrators to manage me
 - Edit and delete existing content (Edit and delete icons used to trigger).
 - Basic authentication for admin login.
 - Responsive UI for desktop and mobile screens.
+- Cards, modals and icons used for viewing and other operations in an interactive way.
+- Context API used for state management across frontend application.
 
 ## Technologies Used
 - **Frontend**: React.js, HTML, CSS
