@@ -27,7 +27,7 @@ A media content management dashboard application for administrators to manage me
 
 ## Setup and Installation
 
-### 1. **Clone the Repository*
+### **Clone the Repository*
 -   ```bash 
     git clone https://github.com/Harikaran-KP/content-management-system.git
     cd content-management-system
