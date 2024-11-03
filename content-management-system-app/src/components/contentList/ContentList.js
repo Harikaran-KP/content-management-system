@@ -76,9 +76,9 @@ const ContentList = ({ contentList, onDelete, edit }) => {
                     />
                 </div>
             </div>
-            <div>
+            {!edit && <div>
                 <Button label="+ Add Content" onClick={handleOpenModal} />
-            </div>
+            </div>}
 
             <AddContentModal show={showAddModal} onClose={handleCloseModal} />
 

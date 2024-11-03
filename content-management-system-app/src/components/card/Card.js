@@ -28,7 +28,7 @@ const Card = ({ editMode, title, description, thumbnail, genre, status, updatedB
     title: editTitle,
     description: editDescription,
     genre: editGenre,
-    upload_date: editUploadDate,
+    uploadDate: editUploadDate,
     status: status,
     thumbnail: thumbnail,
     updatedBy: 'John Doe',
@@ -108,7 +108,8 @@ const Card = ({ editMode, title, description, thumbnail, genre, status, updatedB
                 <EditIcon />
               </div>}
             </div>
-            <p className="card-description">{upload_date}</p>
+            <p className="card-description">{genre}</p>
+            <p className="card-description">{`Date of Upload: ${upload_date }`}</p>
             {editScreen && <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div className={status === 'Published' ? `published` : `draft`}>
                 {status}
