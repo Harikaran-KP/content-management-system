@@ -36,7 +36,6 @@ A media content management dashboard application for administrators to manage me
 ### 2. **Set Up Backend (content-management-system-api)**
 - Navigate to the backend folder and install dependencies:
     ```bash
-    
     cd content-management-system-api
     npm install
     npm install express sqlite3 dotenv bcryptjs body-parser
@@ -44,10 +43,21 @@ A media content management dashboard application for administrators to manage me
 
 - Make sure SQLite is installed on your system. Use 'SQLite Viewer extension if using VS Code, to visualize tables.
   Run the server:
-   ```bash
-   node server.js
+     ```bash
+     node server.js
 
 - The backend server should start at http://localhost:5000.
+
+### 3. Set Up Frontend (content-management-system-app)
+
+- Open a new terminal, navigate to the frontend folder, and install dependencies:
+    ```bash
+    cd content-management-system-app
+    npm install
+- Start the frontend server:
+    ```bash
+    npm start
+- The UI should start at http://localhost:3000.
 
 ## Running the Application
 
@@ -64,6 +74,3 @@ A media content management dashboard application for administrators to manage me
 - **Responsive Design**: The app is designed to be responsive using CSS media queries, with a sidebar that collapses on mobile for a better user experience.
 - **Error Handling**: Basic error handling is implemented with alerts to provide feedback to users on the frontend.
 - **State Management**: Context API is used for managing application state and passing data between components. Separate context files are used for CRUD operations and login functionality to keep the codebase organized and modular.
-
-## Folder Structure
-content-management-system/ ├── content-management-system-api/ # Backend server code (Node.js, Express, SQLite) │ ├── routes/ # Express route handlers │ │ ├── contentRoutes.js # Routes for content operations │ │ └── adminRoutes.js # Routes for admin operations │ ├── models/ # Database models │ │ ├── contentModel.js # Content model and queries │ │ └── adminModel.js # Admin model and queries │ ├── .env # Environment variables │ ├── server.js # Entry point for the backend │ └── cms.db # SQLite database file │ ├── content-management-system-app/ # Frontend code (React) │ ├── public/ # Static assets │ ├── src/ # React components and pages │ │ ├── components/ # Reusable components │ │ │ ├── Button.js # Button component │ │ │ ├── Card.js # Card component for displaying content │ │ │ └── Sidebar.js # Sidebar component │ │ ├── contexts/ # Context providers for state management │ │ │ ├── ContentContext.js # Context for content CRUD operations │ │ │ ├── LoginContext.js # Context for login authentication │ │ ├── pages/ # Main application pages │ │ │ ├── Dashboard.js # Dashboard page for viewing content │ │ │ └── Login.js # Login page for admin access │ │ ├── App.js # Root component │ │ └── index.js # React entry point │ └── .env # Frontend environment variables │ └── README.md # Project documentation
