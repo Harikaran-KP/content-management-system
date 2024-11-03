@@ -66,6 +66,15 @@ A media content management dashboard application for administrators to manage me
 - Open a new terminal and start the frontend server (content-management-system-app), which runs on http://localhost:3000.
 - You can access the application at http://localhost:3000 in your browser.
 
+### Demo Login Credentials
+
+To access the CMS Dashboard UI, use the following credentials:
+
+- **Email**: `admin@example.com`
+- **Password**: `admin123`
+
+These credentials are for demo purposes and allow you to explore the application’s features. Demo records for content table is added. (Refer `database.js`)
+
 ## Assumptions and Choices
 
 - **Authentication**: Basic authentication is implemented for admin login without JWT tokens.
