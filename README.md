@@ -10,7 +10,6 @@ A media content management dashboard application for administrators to manage me
 - [Setup and Installation](#setup-and-installation)
 - [Running the Application](#running-the-application)
 - [Assumptions and Choices](#assumptions-and-choices)
-- [Folder Structure](#folder-structure)
 
 ## Features
 - View and filter media content (Published/Draft status).
@@ -28,8 +27,8 @@ A media content management dashboard application for administrators to manage me
 
 ## Setup and Installation
 
-### 1. **Clone the Repository**
-    ```bash
+### 1. **Clone the Repository*
+-   ```bash 
     git clone https://github.com/Harikaran-KP/content-management-system.git
     cd content-management-system
 
