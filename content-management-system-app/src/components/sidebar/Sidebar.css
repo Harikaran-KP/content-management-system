@@ -1,3 +1,4 @@
+/* Sidebar styling */
 .sidebar {
   width: 15%;
   background-color: #0e0a46;
@@ -9,17 +10,49 @@
   height: 100vh;
   padding: 20px;
   transition: transform 0.3s ease;
+  z-index: 1000; /* Keep the sidebar above content */
+  transform: translateX(0); /* Default for larger screens */
 }
 
-/* Avatar and admin name section */
+/* Only hide sidebar on small screens */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 50%;
+      transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+      transform: translateX(0);
+  }
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  display: none; /* Hidden by default */
+  background-color: #0e0a46;
+}
+
+/* Show hamburger menu only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+      display: block;
+  }
+}
+
 .sidebar-brand {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 16px;
   font-weight: bold;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
+
 
 .avatar {
   width: 40px;
@@ -72,20 +105,4 @@
   background-color: #2A2F73;
   border-radius: 4px;
   padding-left: 10px;
-}
-
-/* Responsive sidebar for mobile */
-@media (max-width: 768px) {
-  .sidebar {
-      transform: translateX(-100%);
-      z-index: 1000;
-  }
-
-  .sidebar.active {
-      transform: translateX(0);
-  }
-
-  .sidebar-close {
-      display: block;
-  }
 }
