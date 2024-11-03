@@ -14,8 +14,9 @@
   .content-list {
     display: flex;
     flex-wrap: wrap;
+    height: 40%;
     align-items:flex-start;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 40px;
   }
   

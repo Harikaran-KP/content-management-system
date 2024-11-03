@@ -7,7 +7,7 @@ const CONTENT_TYPE = {
     title: '',
     description: '',
     genre: '',
-    uploadDate: '',
+    upload_date: '',
     status: '',
     thumbnail: '',
     updatedBy: '',

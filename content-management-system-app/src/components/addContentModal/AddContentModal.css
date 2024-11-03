@@ -1,0 +1,58 @@
+.modal-overlay {
+    position: fixed;
+    display: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content .form-field {
+    margin-bottom: 15px;
+}
+
+.modal-content .form-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-content .form-field input,
+.modal-content .form-field select,
+.modal-content .form-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content:space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.error-text {
+    color: red;
+    font-size: 0.85em;
+    margin-top: 4px;
+}
+

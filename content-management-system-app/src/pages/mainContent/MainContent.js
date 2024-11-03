@@ -6,7 +6,7 @@ import './MainContent.css';
 import { ContentContext } from '../../services/ContentContext';
 
 const MainContentPage = ({ view }) => {
-    const { contentList, loading, error } = useContext(ContentContext);
+    const { contentList } = useContext(ContentContext);
     const [showModal, setShowModal] = useState(false);
     // const [contentList] = useState([
     //     { id: 1, title: "Published Content", description: "This is a published item.", status: "Published", thumbnail: "/images/sample-thumbnail.jpg" },
@@ -22,11 +22,18 @@ const MainContentPage = ({ view }) => {
 
     return (
         <div className="main-content-page">
-            {view === 'content' ? (
-                <ContentList contentList={contentList} onDelete={handleDelete} />
+            {/* {view === 'content' ? (
+                <ContentList edit={false} contentList={contentList} onDelete={handleDelete} />
             ) : (
-                <Drafts contentList={contentList} onDelete={handleDelete} />
-            )}
+                <ContentList edit={true} contentList={contentList} onDelete={handleDelete} />
+            )} */}
+
+            {
+                view === 'content' && <ContentList edit={false} contentList={contentList} onDelete={handleDelete} />
+            }
+            {
+                view === 'edit' && <ContentList edit={true} contentList={contentList} onDelete={handleDelete} />
+            }
 
             <Modal
                 show={showModal}

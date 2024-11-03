@@ -18,8 +18,8 @@ router.post('/', (req, res) => {
     const { title, description, genre, uploadDate, status, thumbnail, addedBy } = req.body;
     
     // Validation to ensure required fields are present
-    if (!title || !description || !genre || !uploadDate || !status) {
-        return res.status(400).json({ error: 'All required fields must be provided' });
+    if (!title || !description) {
+        return res.status(400).json({ error: 'Missing and/or description!' });
     }
 
     contentModel.addContent(title, description, genre, uploadDate, status, thumbnail, addedBy, (err, id) => {
@@ -34,14 +34,14 @@ router.post('/', (req, res) => {
 
 // Route to update an existing content item
 router.put('/update', (req, res) => {
-    const { id, title, description, genre, uploadDate, status, thumbnail, updatedBy } = req.body;
+    const { id, title, description, genre, uploadDate, status, thumbnail, updatedBy, addedBy } = req.body;
 
     // Validate ID and required fields
-    if (!id || !title || !description || !genre || !uploadDate || !status) {
+    if (!id || !title || !description) {
         return res.status(400).json({ error: 'ID and all required fields must be provided' });
     }
 
-    contentModel.updateContent(id, title, description, genre, uploadDate, status, thumbnail, updatedBy, (err, changes) => {
+    contentModel.updateContent(id, title, description, genre, uploadDate, status, thumbnail, updatedBy, addedBy, (err, changes) => {
         if (err) {
             res.status(500).json({ error: err.message });
         } else if (changes === 0) {

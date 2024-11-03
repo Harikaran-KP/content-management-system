@@ -1,14 +1,13 @@
 import React from 'react';
 import Label from '../label/Label';
-import './Dropdown.css';
 
 const Dropdown = ({ label, id, options, value, onChange, name }) => (
-    <div className="dropdown-container">
+    <div className='dropdown-container'>
         {label && <Label text={label} htmlFor={name} />}
-        <select name={name} id={id} value={value} onChange={onChange} className="dropdown">
+        <select name={name} id={id} style={{height: '40px', marginBottom: '15px', width: '100%'}} value={value} onChange={onChange} className="dropdown">
             {options.map((option) => (
-                <option key={option} value={option}>
-                    {option}
+                <option key={option.value} value={option.value}>
+                    {option.label}
                 </option>
             ))}
         </select>
@@ -16,3 +15,5 @@ const Dropdown = ({ label, id, options, value, onChange, name }) => (
 );
 
 export default Dropdown;
+
+

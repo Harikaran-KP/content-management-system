@@ -17,12 +17,17 @@ const addContent = (title, description, genre, uploadDate, status, thumbnail, ad
 };
 
 // Update content by ID
-const updateContent = (id, title, description, genre, uploadDate, status, thumbnail, updatedBy, callback) => {
-    const query = `UPDATE content SET title = ?, description = ?, genre = ?, upload_date = ?, status = ?, thumbnail = ? updatedBy = ? WHERE id = ?`;
-    db.run(query, [title, description, genre, uploadDate, status, thumbnail, updatedBy, id], function (err) {
+const updateContent = (id, title, description, genre, uploadDate, status, thumbnail, updatedBy, addedBy, callback) => {
+    const query = `
+        UPDATE content
+        SET title = ?, description = ?, genre = ?, upload_date = ?, status = ?, thumbnail = ?, updatedBy = ?, addedBy = ?
+        WHERE id = ?
+    `;
+    db.run(query, [title, description, genre, uploadDate, status, thumbnail, updatedBy, addedBy, id], function (err) {
         callback(err, this.changes);
     });
 };
+
 
 // Delete content by ID
 const deleteContent = (id, callback) => {
