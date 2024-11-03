@@ -19,7 +19,7 @@ const AddContentModal = ({ show, onClose }) => {
         addedBy: 'John Doe'
     });
 
-    const [errors, setErrors] = useState({ title: false, description: false }); // Error state for required fields
+    const [errors, setErrors] = useState({ title: false, description: false }); // Error state for required fields, validation
 
     const statusOptions = [
         { value: 'Published', label: 'Published' },
@@ -37,9 +37,10 @@ const AddContentModal = ({ show, onClose }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        setErrors({ ...errors, [name]: false }); // Clear error for the field when user starts typing
+        setErrors({ ...errors, [name]: false }); // Clears error for the field when user starts typing
     };
 
+    //Function to publish
     const handleSave = async () => {
         if (validateFields()) {
             const updatedNewData = { ...formData, status: 'Published' };
@@ -48,6 +49,7 @@ const AddContentModal = ({ show, onClose }) => {
         }
     };
 
+    //Function to save to draft
     const handleDraft = async () => {
         if (validateFields()) {
             const updatedNewData = { ...formData, status: 'Draft' };

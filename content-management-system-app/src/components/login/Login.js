@@ -10,11 +10,12 @@ const Login = () => {
 
     const { login, loading } = useContext(LoginContext);
 
+    //Submit function to check credentials for log in
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await login(email, password);
-            setError(null); // Clear any previous errors on successful login
+            setError(null); // Clears any previous errors on successful login
         } catch (err) {
             setError(err.message);
         }
@@ -31,7 +32,7 @@ const Login = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                
+
                 <label>Password</label>
                 <input
                     type="password"
@@ -39,9 +40,9 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                
+
                 {error && <p className="error">{error}</p>}
-                
+
                 <button type="submit" disabled={loading}>
                     {loading ? 'Logging in...' : 'Login'}
                 </button>

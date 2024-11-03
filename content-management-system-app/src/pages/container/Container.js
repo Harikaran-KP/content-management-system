@@ -7,8 +7,10 @@ import { LoginContext } from '../../services/LoginContext';
 import Login from '../../components/login/Login';
 
 const Container = () => {
+    //Master layout of the app. Here, sidebar and main content section are mounted
+
     const [view, setView] = useState('content'); // Track selected view ("content" or "drafts")
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Toggle sidebar visibility on mobile
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Toggler state for sidebar visibility on mobile
     const { isLoggedIn, adminDetails, login, logout, loading } = useContext(LoginContext)
 
     const toggleSidebar = () => {
@@ -23,11 +25,8 @@ const Container = () => {
         <>
             {!isLoggedIn && (
                 <Login />)}
+
             {isLoggedIn && <div className="container">
-                {/* <div className={`top-navbar-container ${isSidebarOpen ? '' : 'active'}`}>
-                <TopNavbar onToggleSidebar={toggleSidebar} />
-            </div> */}
-                {/* <TopNavbar onToggleSidebar={toggleSidebar} /> */}
                 <div className={`sidebar-container ${isSidebarOpen ? 'active' : ''}`}>
                     <Sidebar onSelect={setView} onClose={closeSidebar} onLogout={logout}/>
                 </div>

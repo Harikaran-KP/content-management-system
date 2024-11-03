@@ -11,6 +11,9 @@ import Modal from '../modal/Modal';
 import { UpdateContext } from '../../services/UpdateContentContext';
 
 const Card = ({ editMode, title, description, thumbnail, genre, status, updatedBy, addedBy, upload_date, onSave, edit, id }) => {
+  //Card - Displays info of a content in card layout.
+
+  //states to store values for editing and updated values of content
   const [editScreen, setEditScreen] = useState(editMode)
   const [isEditing, setIsEditing] = useState(edit);
   const [editTitle, setEditTitle] = useState(title);
@@ -45,17 +48,17 @@ const Card = ({ editMode, title, description, thumbnail, genre, status, updatedB
 
   // Handler for saving updates
   const handleSave = () => {
-    updateContent(payload); // Pass the payload with updated data to the parent
+    updateContent(payload); // Passing the payload with updated data to the parent
     setIsEditing(false);
   };
 
   const handleDelete = async () => {
-    await deleteContent(id)
+    await deleteContent(id) //Passing id to delete api
     setDeleteModal(false)
   }
 
   const handleCancel = () => {
-    // Reset to the original values
+    // Resetting to the original values
     setEditTitle(title);
     setEditDescription(description);
     setEditGenre(genre);
@@ -97,19 +100,23 @@ const Card = ({ editMode, title, description, thumbnail, genre, status, updatedB
             </div>
           </>
         ) : (
+
           // Display Mode
           <>
             <div className="card-thumbnail-container">
               <img src={thumbnail} alt={`${title} thumbnail`} className="card-thumbnail" />
             </div>
+            
             <div className="card-title-row">
               <p className="card-title">{title}</p>
               {editScreen && <div className="edit-box" onClick={() => setIsEditing(true)}>
                 <EditIcon />
               </div>}
             </div>
+
             <p className="card-description">{genre}</p>
-            <p className="card-description">{`Date of Upload: ${upload_date }`}</p>
+            <p className="card-description">{`Date of Upload: ${upload_date}`}</p>
+            
             {editScreen && <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div className={status === 'Published' ? `published` : `draft`}>
                 {status}
@@ -118,6 +125,8 @@ const Card = ({ editMode, title, description, thumbnail, genre, status, updatedB
                 <DeleteIcon />
               </div>
             </div>}
+
+            {/* Modal to confirm deletion of content */}
             <Modal
               show={deleteModal}
               title="Confirm Delete"
@@ -126,10 +135,13 @@ const Card = ({ editMode, title, description, thumbnail, genre, status, updatedB
             >
               Are you sure you want to delete this content?
             </Modal>
+
             {!editScreen && <div className={status === 'Published' ? `published` : `draft`}>
               {status}
             </div>}
+
             {show && <p className="card-description">{description}</p>}
+
             <div className="card-button-container">
               {!show && (
                 <Button

@@ -1,4 +1,3 @@
-// AddContext.js
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
 
@@ -9,10 +8,10 @@ const INITIAL_ADD_STATE = {
     success: false
 };
 
-// Create the context
+// Context
 export const AddContext = createContext(INITIAL_ADD_STATE);
 
-// Create a provider component
+// Provider component
 export const AddContextProvider = ({ children }) => {
     const [addState, setAddState] = useState(INITIAL_ADD_STATE);
 
@@ -33,6 +32,7 @@ export const AddContextProvider = ({ children }) => {
             return response.data;
         } catch (error) {
             setAddState({ loading: false, error: error.message, success: false });
+            alert('Error occured!')
         }
     };
 

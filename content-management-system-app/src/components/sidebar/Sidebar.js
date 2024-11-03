@@ -3,6 +3,8 @@ import './Sidebar.css';
 
 const Sidebar = ({ onSelect, adminName = "John Doe", onLogout }) => {
   const [isOpen, setIsOpen] = useState(false); // New state for sidebar visibility
+
+  //Taking first letters from names of admin to create thumnail for profile
   const initials = adminName
     .split(" ")
     .map(name => name[0].toUpperCase())
@@ -25,10 +27,12 @@ const Sidebar = ({ onSelect, adminName = "John Doe", onLogout }) => {
 
       <div className={`sidebar ${isOpen ? 'active' : ''}`}>
         <h2 style={{ color: '#ebe4e4' }}>Content Management System</h2>
+
         <div className="sidebar-brand">
           <div className="avatar">{initials}</div>
           <span>{adminName}</span>
         </div>
+
         <ul className="sidebar-links">
           <li onClick={() => { onSelect('content'); closeSidebar(); }}>
             <i className="icon icon-content"></i> Content List
@@ -37,6 +41,7 @@ const Sidebar = ({ onSelect, adminName = "John Doe", onLogout }) => {
             <i className="icon icon-edit"></i> Edit Content
           </li>
         </ul>
+
         <button className="logout-button" onClick={onLogout}>
           Logout
         </button>

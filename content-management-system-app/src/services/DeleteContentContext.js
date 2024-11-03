@@ -9,10 +9,10 @@ const INITIAL_DELETE_STATE = {
     success: false
 };
 
-// Create the context
+// Context
 export const DeleteContext = createContext(INITIAL_DELETE_STATE);
 
-// Create a provider component
+// Provider component
 export const DeleteContextProvider = ({ children }) => {
     const [deleteState, setDeleteState] = useState(INITIAL_DELETE_STATE);
 
@@ -28,6 +28,7 @@ export const DeleteContextProvider = ({ children }) => {
             alert('Content deleted!')
         } catch (error) {
             setDeleteState({ loading: false, error: error.message, success: false });
+            alert('Error occured!')
         }
     };
 

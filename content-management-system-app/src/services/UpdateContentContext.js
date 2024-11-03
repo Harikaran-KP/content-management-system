@@ -9,10 +9,10 @@ const INITIAL_UPDATE_STATE = {
     success: false
 };
 
-// Create the context
+// Context
 export const UpdateContext = createContext(INITIAL_UPDATE_STATE);
 
-// Create a provider component
+// Provider component
 export const UpdateContextProvider = ({ children }) => {
     const [updateState, setUpdateState] = useState(INITIAL_UPDATE_STATE);
 
@@ -26,6 +26,7 @@ export const UpdateContextProvider = ({ children }) => {
             alert('Content updated successfully!')
         } catch (error) {
             setUpdateState({ loading: false, error: error.message, success: false });
+            alert('Error occured!')
         }
     };
 

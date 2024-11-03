@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 router.put('/update', (req, res) => {
     const { id, title, description, genre, uploadDate, status, thumbnail, updatedBy, addedBy } = req.body;
 
-    // Validate ID and required fields
+    // Validation ID and required fields
     if (!id || !title || !description) {
         return res.status(400).json({ error: 'ID and all required fields must be provided' });
     }

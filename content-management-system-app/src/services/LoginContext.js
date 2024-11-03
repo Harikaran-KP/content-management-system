@@ -10,7 +10,7 @@ export const LoginContextProvider = ({ children }) => {
     const [adminDetails, setAdminDetails] = useState(null);
 
     useEffect(() => {
-        // Check localStorage on initialization to restore login state
+        // Checking localStorage on initialization to restore login state
         const storedAdmin = localStorage.getItem('adminDetails');
         if (storedAdmin) {
             setAdminDetails(JSON.parse(storedAdmin));
@@ -26,7 +26,7 @@ export const LoginContextProvider = ({ children }) => {
                 password
             });
 
-            // Save login state and admin details to localStorage
+            // Saving login state and admin details to localStorage
             setIsLoggedIn(true);
             setAdminDetails(response.data.admin);
             localStorage.setItem('adminDetails', JSON.stringify(response.data.admin));
@@ -40,7 +40,7 @@ export const LoginContextProvider = ({ children }) => {
     const logout = () => {
         setIsLoggedIn(false);
         setAdminDetails(null);
-        localStorage.removeItem('adminDetails'); // Clear login details from localStorage
+        localStorage.removeItem('adminDetails'); // Clearing login details from localStorage while logging out
     };
 
     return (
