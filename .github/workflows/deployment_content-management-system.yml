@@ -60,6 +60,8 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'content-management-system'
+          app_location: 'content-management-system-app'
+          output_location: 'content-management-system-app/build'
           slot-name: 'Production'
           package: .
           
