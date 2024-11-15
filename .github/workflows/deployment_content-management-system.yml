@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          path: ./content-management-system-app
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3AB8E0F690584753BA6B30F20668B9A3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1D86D16E1EC545E9BBBABAAC0F9980A5 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B9B524098A41456FBD19DC60CC44073F }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -63,5 +63,5 @@ jobs:
           app_location: 'content-management-system-app'
           output_location: 'content-management-system-app/build'
           slot-name: 'Production'
-          package: .
+          package: ./content-management-system-app/build
           
