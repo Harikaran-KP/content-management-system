@@ -4,7 +4,6 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "cd content-management-system-api && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
