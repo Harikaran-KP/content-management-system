@@ -21,7 +21,8 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: Install dependencies and build
+        working-directory: content-management-system-app
         run: |
           npm install
           npm run build
