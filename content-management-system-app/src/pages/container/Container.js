@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
 import MainContentPage from '../mainContent/MainContent';
-import TopNavbar from '../../components/topNavbar/TopNavbar';
 import './Container.css';
 import { LoginContext } from '../../services/LoginContext';
 import Login from '../../components/login/Login';
@@ -11,11 +10,7 @@ const Container = () => {
 
     const [view, setView] = useState('content'); // Track selected view ("content" or "drafts")
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Toggler state for sidebar visibility on mobile
-    const { isLoggedIn, adminDetails, login, logout, loading } = useContext(LoginContext)
-
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
+    const { isLoggedIn, logout } = useContext(LoginContext)
 
     const closeSidebar = () => {
         setIsSidebarOpen(false);

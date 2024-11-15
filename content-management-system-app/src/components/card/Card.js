@@ -14,7 +14,7 @@ const Card = ({ editMode, title, description, thumbnail, genre, status, updatedB
   //Card - Displays info of a content in card layout.
 
   //states to store values for editing and updated values of content
-  const [editScreen, setEditScreen] = useState(editMode)
+  const [editScreen] = useState(editMode)
   const [isEditing, setIsEditing] = useState(edit);
   const [editTitle, setEditTitle] = useState(title);
   const [editDescription, setEditDescription] = useState(description);

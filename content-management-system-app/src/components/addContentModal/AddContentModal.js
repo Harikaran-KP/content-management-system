@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import Modal from '../modal/Modal';
 import TextInput from '../textInput/TextInput';
 import Dropdown from '../dropdown/Dropdown';
 import Button from '../button/Button';
@@ -20,11 +19,6 @@ const AddContentModal = ({ show, onClose }) => {
     });
 
     const [errors, setErrors] = useState({ title: false, description: false }); // Error state for required fields, validation
-
-    const statusOptions = [
-        { value: 'Published', label: 'Published' },
-        { value: 'Draft', label: 'Draft' }
-    ];
 
     const genreOptions = [
         { value: 'Drama', label: 'Drama' },

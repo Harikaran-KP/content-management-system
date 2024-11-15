@@ -1,6 +1,5 @@
 import React from 'react';
 import './TopNavbar.css';
-import { HamburgerIcon } from '../../svgIcons/HamburgerIcon';
 
 const TopNavbar = ({ onToggleSidebar }) => {
   return (

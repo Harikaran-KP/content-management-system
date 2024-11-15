@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Button from '../button/Button';
 import './Modal.css';
-import { DeleteContext } from '../../services/DeleteContentContext';
 
 const Modal = ({ show, title, onClose, onConfirm, children }) => {
   if (!show) return null;
