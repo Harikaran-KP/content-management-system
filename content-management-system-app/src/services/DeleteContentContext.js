@@ -21,7 +21,7 @@ export const DeleteContextProvider = ({ children }) => {
         setDeleteState({ ...INITIAL_DELETE_STATE, loading: true });
         console.log('id', id)
         try {
-            await axios.delete(`http://localhost:5000/api/content/delete`, {
+            await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/content/delete`, {
                 data: { id }
             });
             setDeleteState({ loading: false, error: null, success: true });
