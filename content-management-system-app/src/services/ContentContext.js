@@ -33,7 +33,7 @@ export const ContentContextProvider = ({ children }) => {
             setContentState({ ...INITIAL_STATE, loading: true });
 
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/content`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/content`);
                 const contentList = response.data.map(item => ({
                     ...CONTENT_TYPE,
                     ...item  

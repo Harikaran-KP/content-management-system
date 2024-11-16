@@ -21,7 +21,7 @@ export const UpdateContextProvider = ({ children }) => {
         setUpdateState({ ...INITIAL_UPDATE_STATE, loading: true });
 
         try {
-            await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/content/update`, updatedItem);
+            await axios.put(`${process.env.REACT_APP_API_URL}/api/content/update`, updatedItem);
             setUpdateState({ loading: false, error: null, success: true });
             alert('Content updated successfully!')
         } catch (error) {
