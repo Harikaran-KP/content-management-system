@@ -9,6 +9,8 @@ const INITIAL_DELETE_STATE = {
     success: false
 };
 
+const apiBaseUrl = window._env_.REACT_APP_API_BASE_URL;
+
 // Context
 export const DeleteContext = createContext(INITIAL_DELETE_STATE);
 
@@ -21,7 +23,7 @@ export const DeleteContextProvider = ({ children }) => {
         setDeleteState({ ...INITIAL_DELETE_STATE, loading: true });
         console.log('id', id)
         try {
-            await axios.delete(`${process.env.REACT_APP_API_URL}/api/content/delete`, {
+            await axios.delete(`${apiBaseUrl}/api/content/delete`, {
                 data: { id }
             });
             setDeleteState({ loading: false, error: null, success: true });

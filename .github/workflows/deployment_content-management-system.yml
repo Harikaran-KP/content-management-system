@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: '18.x'
 
+      - name: Create env-config.js
+        run: |
+          echo "window._env_ = { REACT_APP_API_BASE_URL: '${{ secrets.REACT_APP_API_BASE_URL }}' };" > ./content-management-system-app/public/env-config.js
+
       - name: Install dependencies and build
         working-directory: content-management-system-app
         run: |

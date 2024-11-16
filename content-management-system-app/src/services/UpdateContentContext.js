@@ -9,6 +9,8 @@ const INITIAL_UPDATE_STATE = {
     success: false
 };
 
+const apiBaseUrl = window._env_.REACT_APP_API_BASE_URL;
+
 // Context
 export const UpdateContext = createContext(INITIAL_UPDATE_STATE);
 
@@ -21,7 +23,7 @@ export const UpdateContextProvider = ({ children }) => {
         setUpdateState({ ...INITIAL_UPDATE_STATE, loading: true });
 
         try {
-            await axios.put(`${process.env.REACT_APP_API_URL}/api/content/update`, updatedItem);
+            await axios.put(`${apiBaseUrl}/api/content/update`, updatedItem);
             setUpdateState({ loading: false, error: null, success: true });
             alert('Content updated successfully!')
         } catch (error) {

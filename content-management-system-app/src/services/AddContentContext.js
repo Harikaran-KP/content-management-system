@@ -8,6 +8,8 @@ const INITIAL_ADD_STATE = {
     success: false
 };
 
+const apiBaseUrl = window._env_.REACT_APP_API_BASE_URL;
+
 // Context
 export const AddContext = createContext(INITIAL_ADD_STATE);
 
@@ -20,7 +22,7 @@ export const AddContextProvider = ({ children }) => {
         setAddState({ ...INITIAL_ADD_STATE, loading: true });
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/content`, newItem);
+            const response = await axios.post(`${apiBaseUrl}/api/content`, newItem);
             setAddState({ loading: false, error: null, success: true });
             if (status === 'Published'){
                 alert('Content published successfully!')

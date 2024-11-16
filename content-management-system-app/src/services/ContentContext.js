@@ -14,6 +14,8 @@ const CONTENT_TYPE = {
     addedBy: ''
 };
 
+const apiBaseUrl = window._env_.REACT_APP_API_BASE_URL;
+
 // Initial for the content list
 const INITIAL_STATE = {
     contentList: [],        // Array of content items with defined structure
@@ -33,7 +35,7 @@ export const ContentContextProvider = ({ children }) => {
             setContentState({ ...INITIAL_STATE, loading: true });
 
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/content`);
+                const response = await axios.get(`${apiBaseUrl}/api/content`);
                 const contentList = response.data.map(item => ({
                     ...CONTENT_TYPE,
                     ...item  
