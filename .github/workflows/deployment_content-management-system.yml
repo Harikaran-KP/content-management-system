@@ -21,15 +21,20 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Create env-config.js
-        run: |
-          echo "window._env_ = { REACT_APP_API_BASE_URL: '${{ secrets.REACT_APP_API_BASE_URL }}' };" > ./content-management-system-app/public/env-config.js
-
       - name: Install dependencies and build
         working-directory: content-management-system-app
         run: |
           npm install
           npm run build
+
+      - name: Debug environment variables
+        run: |
+          echo "Checking Environment Variables..."
+          echo "REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}"
+      
+      - name: Create env-config.js
+        run: |
+          echo "window._env_ = { REACT_APP_API_BASE_URL: '${{ secrets.REACT_APP_API_BASE_URL }}' };" > ./content-management-system-app/public/env-config.js
       
       - name: Upload build artifact for deployment job
         uses: actions/upload-artifact@v4
