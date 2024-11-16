@@ -46,12 +46,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-folder
+          path: ./content-management-system-app/build
 
-      - name: Extract build artifact
-        run: |
-          mkdir -p content-management-system-app/build
-          tar -xzf build-folder -C content-management-system-app/build
-      
       - name: Login to Azure
         uses: azure/login@v2
         with:
