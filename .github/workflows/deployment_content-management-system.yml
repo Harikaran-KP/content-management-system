@@ -31,22 +31,26 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-folder
-          path: content-management-system-app/build
+          path: content-management-system-app/build/
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write # Required for requesting the JWT
 
     steps:
       - name: Download build artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: build-folder
+
+      - name: Extract build artifact
+        run: |
+          mkdir -p content-management-system-app/build
+          tar -xzf build-folder -C content-management-system-app/build
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -61,5 +65,4 @@ jobs:
         with:
           app-name: 'content-management-system'
           slot-name: 'Production'
-          package: build-folder
-          
+          package: content-management-system-app/build/
